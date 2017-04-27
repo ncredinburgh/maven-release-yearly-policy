@@ -22,7 +22,7 @@ public class YearlyVersionPolicy implements VersionPolicy {
 
     private final Year currentYear;
 
-    public YearlyVersionPolicy(Year currentYear) {
+    public YearlyVersionPolicy(final Year currentYear) {
         this.currentYear = currentYear;
     }
 
@@ -48,7 +48,7 @@ public class YearlyVersionPolicy implements VersionPolicy {
 
     private boolean matchesYear(String yearString, Year year) {
         try {
-            Year parsedYear = Year.parse(yearString);
+            final Year parsedYear = Year.parse(yearString);
             return year.equals(parsedYear);
         } catch (DateTimeParseException dateTimeParseException) {
             return false;
@@ -62,10 +62,10 @@ public class YearlyVersionPolicy implements VersionPolicy {
     /**
      * {@inheritDoc}
      */
-    public VersionPolicyResult getDevelopmentVersion(VersionPolicyRequest versionPolicyRequest)
+    public VersionPolicyResult getDevelopmentVersion(final VersionPolicyRequest versionPolicyRequest)
             throws PolicyException, VersionParseException {
         final VersionPolicyResult result = new VersionPolicyResult();
-        String version = versionPolicyRequest.getVersion();
+        final String version = versionPolicyRequest.getVersion();
 
         if (version.endsWith(snapshotPostfix)) {
             result.setVersion(version);
@@ -83,28 +83,28 @@ public class YearlyVersionPolicy implements VersionPolicy {
     }
 
     private String incrementVersionWithinYear(final String version) {
-        Pattern subVersionsPattern = Pattern.compile("^\\d+(.\\d+)*");
-        String[] versionParts = version.split("\\.", 2);
-        String yearPart = versionParts[0];
-        String afterYearPart = versionParts[1];
-        Matcher subVersionMatcher = subVersionsPattern.matcher(afterYearPart);
+        final Pattern subVersionsPattern = Pattern.compile("^\\d+(.\\d+)*");
+        final String[] versionParts = version.split("\\.", 2);
+        final String yearPart = versionParts[0];
+        final String afterYearPart = versionParts[1];
+        final Matcher subVersionMatcher = subVersionsPattern.matcher(afterYearPart);
 
         if (subVersionMatcher.find()) {
-            String nonNumberPart = afterYearPart.substring(subVersionMatcher.end());
+            final String nonNumberPart = afterYearPart.substring(subVersionMatcher.end());
             return yearPart + "." + incrementSubVersion(subVersionMatcher.group()) + nonNumberPart;
         } else {
             return firstOfYear();
         }
     }
 
-    private String incrementSubVersion(String subVersion) {
+    private String incrementSubVersion(final String subVersion) {
         if (StringUtils.isNumeric(subVersion)) {
             return Integer.toString(Integer.parseInt(subVersion) + 1);
         }
 
-        String headVersionPart = StringUtils.substringBeforeLast(subVersion, ".");
-        String tailVersionPart = StringUtils.substringAfterLast(subVersion, ".");
-        Integer newSubVersion = Integer.parseInt(tailVersionPart) + 1;
+        final String headVersionPart = StringUtils.substringBeforeLast(subVersion, ".");
+        final String tailVersionPart = StringUtils.substringAfterLast(subVersion, ".");
+        final Integer newSubVersion = Integer.parseInt(tailVersionPart) + 1;
 
         return headVersionPart + "." + newSubVersion.toString();
     }
