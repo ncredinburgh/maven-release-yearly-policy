@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ncredinburgh/maven-release-yearly-policy.svg?branch=master)](https://travis-ci.org/ncredinburgh/maven-release-yearly-policy)
+
 # Maven Release Yearly Policy
 
 This versioning policy for use with Maven's maven-release plugin 
