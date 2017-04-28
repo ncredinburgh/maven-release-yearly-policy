@@ -33,3 +33,7 @@ This plugin requires Java 8 along with a recent version of the release plugin.  
   </dependencies>
 </plugin>
 ```
+
+## Semantics
+
+Whenever the current year is detected as being the major version of the artifact, the minor version is incrememnted as one would expect, so 2017.2 becomes 2017.3 and 2017.2.1 becomes 2017.2.2.  Where the major component is not the current year then the version is set to the first release of the current year, so in 2018, version 2017.3.2 becomes 2018.1, even if the present SNAPSHOT version is for a 2017 version.  For more details on specifc scenarios see the [test cases](https://github.com/ncredinburgh/maven-release-yearly-policy/blob/master/src/test/java/com/ncredinburgh/maven/release/policy/YearlyVersionPolicyTest.java).
