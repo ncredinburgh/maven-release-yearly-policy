@@ -15,4 +15,21 @@ which does not expose APIs.
 
 ## Usage
 
-This plugin requires Java 8 along with a recent version of the release plugin.
+This plugin requires Java 8 along with a recent version of the release plugin.  To use in your project edit your POM and set the `projectVersionPolicyId` configuration property of the maven-release-plugin to `yearly`, along with adding a dependency to this artifact, like so:
+
+```xml
+<plugin>
+  <artifactId>maven-release-plugin</artifactId>
+  <version>2.5.3</version>
+  <configuration>
+    <projectVersionPolicyId>yearly</projectVersionPolicyId>
+  </configuration>
+  <dependencies>
+    <dependency>
+      <groupId>com.ncredinburgh</groupId>
+      <artifactId>maven-release-yearly-policy</artifactId>
+      <version>1.0</version>
+    </dependency>
+  </dependencies>
+</plugin>
+```
