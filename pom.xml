@@ -31,7 +31,7 @@
 
   <scm>
     <connection>scm:git:git://github.com/ncredinburgh/maven-release-yearly-policy.git</connection>
-    <developerConnection>scm:git:ssh://github.com/ncredinburgh/maven-release-yearly-policy.git</developerConnection>
+    <developerConnection>scm:git:git://github.com/ncredinburgh/maven-release-yearly-policy.git</developerConnection>
     <url>https://github.com/ncredinburgh/maven-release-yearly-policy/tree/master</url>
   </scm>
 
