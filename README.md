@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/ncredinburgh/maven-release-yearly-policy.svg?branch=master)](https://travis-ci.org/ncredinburgh/maven-release-yearly-policy)
+[![Build Status](https://travis-ci.org/ncredinburgh/maven-release-yearly-policy.svg?branch=master)](https://travis-ci.org/ncredinburgh/maven-release-yearly-policy) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.ncredinburgh/maven-release-yearly-policy/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.ncredinburgh/maven-release-yearly-policy)
 
 Maven Release Yearly Policy
 ---------------------------
